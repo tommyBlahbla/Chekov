@@ -87,6 +87,7 @@ function drawHabitButtons(habit){
     newCName='h'+(hCount+1);
     setCookie(newCName, JSON.stringify(fieldvals), 365);
     $('#newHabitModal').modal('toggle');
+    location.reload();
     event.preventDefault();
 });
 
