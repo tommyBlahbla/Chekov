@@ -27,6 +27,7 @@ $( document ).ready(function() {
     if (cData==""){
         cData = {
             sDate:Date.now(),
+            hCount:2,
             h1:'r',
             h2:'a'
         }
@@ -55,10 +56,10 @@ $( document ).ready(function() {
     cData=JSON.stringify(cData);
     console.log(cData);
     cDataParsed=JSON.parse(cData);
-    var hCount = Object.keys(cDataParsed).length-1;
-    console.log(hCount);
+    //var hCount = Object.keys(cDataParsed).length-1;
+    console.log(cDataParsed.hCount);
 
-    while(i<=hCount){
+    while(i<=cDataParsed.hCount){
         cname='h'+i;
         console.log(cname);
         habits[i]=JSON.parse(getCookie(cname));
@@ -86,6 +87,8 @@ function drawHabitButtons(habit){
     console.log(fieldJSON);
     newCName='h'+(hCount+1);
     setCookie(newCName, JSON.stringify(fieldvals), 365);
+    // newCData=JSON.stringify(fieldvals)+
+    // setCookie('cData', ,365);
     $('#newHabitModal').modal('toggle');
     location.reload();
     event.preventDefault();
