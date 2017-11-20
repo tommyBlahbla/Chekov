@@ -19,10 +19,6 @@ function getCookie(cname) {
     return "";
 }
 
-function submitForm(){
-    console.log("SBUMITEDDED!!!");
-}
-
 $( "form" ).submit(function( event ) {
     var fields = $( ":input" ).serializeArray();
     var fieldval;
@@ -43,7 +39,7 @@ $( "form" ).submit(function( event ) {
 });
 
 $('#newCookieBtn').on('click', function() {
-    setCookie('NewHabit', 'TEST', 30);
+    setCookie('NewHabit1111', 'TEST', 30);
     console.log("YAY");
 });
 function checkStatus(modNumber, numReqReading) {
