@@ -28,7 +28,7 @@ $( document ).ready(function() {
         h1:'r',
         h2:'a'
         }
-        setCookie('cdata',JSON.stringify(cdata),365);
+        setCookie('chekov',JSON.stringify(cdata),365);
         console.log("WELCOME NEWB");
     }
     console.log(cdata);
