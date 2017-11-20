@@ -27,7 +27,6 @@ $( document ).ready(function() {
     if (cData==""){
         cData = {
             sDate:Date.now(),
-            habitInt:2,
             h1:'r',
             h2:'a'
         }
@@ -40,8 +39,9 @@ $( document ).ready(function() {
     cData=JSON.stringify(cData);
     console.log(cData);
     cDataParsed=JSON.parse(cData);
-    var hCount = Object.keys(cDataParsed).length-2;
+    var hCount = Object.keys(cDataParsed).length-1;
     console.log(hCount);
+
     while(i<=hCount){
         cname='h'+i;
         console.log(cname);
@@ -50,14 +50,11 @@ $( document ).ready(function() {
         i++;
     }
     console.log(habits);
-});
-
-function getCookieIndex(){}
 
 
-$("#newHabit").submit(function( event ) {
-    var fields = $( ":input" ).serializeArray();
-    var fieldvals = {
+    $("#newHabit").submit(function( event ) {
+        var fields = $( ":input" ).serializeArray();
+        var fieldvals = {
         n:fields[0].value,  //name
         s:fields[1].value,  //shortcode
         f:fields[2].value,  //frequency
@@ -67,10 +64,15 @@ $("#newHabit").submit(function( event ) {
     }
     fieldJSON=JSON.stringify(fieldvals);
     console.log(fieldJSON);
-    setCookie('h', JSON.stringify(fieldvals), 365);
+    newCName='h'+(hCount+1);
+    setCookie(newCName, JSON.stringify(fieldvals), 365);
     $('#newHabitModal').modal('toggle');
     event.preventDefault();
 });
+
+});
+
+function getCookieIndex(){}
 
 $('#newCookieBtn').on('click', function() {
     setCookie('NewHabit1111', 'TEST', 30);
