@@ -22,7 +22,8 @@ function getCookie(cname) {
 $( document ).ready(function() {
     var cData = getCookie("chekov");
     var i=1;
-    var habits;
+    var habits=[];
+    var cname;
     if (cData==""){
         cData = {
             sDate:Date.now(),
@@ -43,8 +44,10 @@ $( document ).ready(function() {
     console.log(hCount);
     while(i<=hCount){
         cname='h'+i;
+        console.log(cname);
         habits[i]=getCookie(cname);
         console.log(habits[i]);
+        i++;
     }
     console.log(habits);
 });
@@ -55,11 +58,12 @@ function getCookieIndex(){}
 $("#newHabit").submit(function( event ) {
     var fields = $( ":input" ).serializeArray();
     var fieldvals = {
-        n:fields[0].value,
-        s:fields[1].value,
-        f:fields[2].value,
-        g:fields[3].value,
-        p:fields[4].value
+        n:fields[0].value,  //name
+        s:fields[1].value,  //shortcode
+        f:fields[2].value,  //frequency
+        g:fields[3].value,  //make vs break
+        p:fields[4].value,  //# per period
+        a:1                 //active
     }
     fieldJSON=JSON.stringify(fieldvals);
     console.log(fieldJSON);
