@@ -19,6 +19,29 @@ function getCookie(cname) {
     return "";
 }
 
+function submitForm(){
+    console.log("SBUMITEDDED!!!");
+}
+
+$( "form" ).submit(function( event ) {
+    var fields = $( ":input" ).serializeArray();
+    var fieldval;
+    var fieldJSON;
+    jQuery.each( fields, function( i, field ) {
+      //console.log(field.name + " " + field.value + " " + i + " ");
+      if (fieldval) {
+        fieldval=fieldval + "," + field.name + ":" + field.value;  
+    } else{
+      fieldval=field.name + ":" + field.value;
+  }
+});
+    fieldJSON=JSON.stringify(fieldval);
+    console.log(fieldJSON);
+    setCookie('TESTCOOKIE', JSON.stringify(fieldval), 365);
+  // console.log( $( this ).serializeArray() );
+  event.preventDefault();
+});
+
 $('#newCookieBtn').on('click', function() {
     setCookie('NewHabit', 'TEST', 30);
     console.log("YAY");
