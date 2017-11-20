@@ -53,7 +53,7 @@ $( document ).ready(function() {
     setCookie('h1',JSON.stringify(h1data),365);
     setCookie('h2',JSON.stringify(h2data),365);
     // console.log("WELCOME NEWB");
-    // cData=JSON.stringify(cData);
+    cData=JSON.stringify(cData);
     // console.log(cData);
     cDataParsed=JSON.parse(cData);
     //var hCount = Object.keys(cDataParsed).length-1;
