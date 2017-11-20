@@ -19,17 +19,36 @@ function getCookie(cname) {
     return "";
 }
 
-$( "form" ).submit(function( event ) {
+$( document ).ready(function() {
+    var cdata = getCookie("chekov");
+    if (cdata==""){
+        cdata = {
+        sdate:Date.now(),
+        ihabit:2,
+        h1:'r',
+        h2:'a'
+        }
+        setCookie('cdata',JSON.stringify(cdata),365);
+        console.log("WELCOME NEWB");
+    }
+    console.log(cdata);
+});
+
+function getCookieIndex(){}
+
+
+$("#newHabit").submit(function( event ) {
     var fields = $( ":input" ).serializeArray();
     var fieldvals = {
         n:fields[0].value,
-        f:fields[1].value,
-        g:fields[2].value,
-        p:fields[3].value
+        f:fields[2].value,
+        g:fields[3].value,
+        p:fields[4].value
     }
     fieldJSON=JSON.stringify(fieldvals);
     console.log(fieldJSON);
-    setCookie('TESTCOOKIE', JSON.stringify(fieldvals), 365);
+    setCookie(fields[1].value, JSON.stringify(fieldvals), 365);
+    $('#newHabitModal').modal('toggle');
   event.preventDefault();
 });
 

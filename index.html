@@ -62,14 +62,14 @@
     </div>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newHabitModal">
       Launch demo modal
     </button>
 
   </div><!-- /.container -->
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="newHabitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -79,11 +79,17 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="newHabit">
             <div class="form-group row">
               <label class="sr-only" for="newHabitName">New Habit Name</label>
               <div class="col-sm-12">
                 <input type="text" class="form-control" name="newHabitName"  id="newHabitName" placeholder="Habit Name" required>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="sr-only" for="newHabitShort">New Habit Shortcode</label>
+              <div class="col-sm-12">
+              <input type="text" class="form-control" name="newHabitShort"  id="newHabitName" placeholder="Two Letter Shortcode" maxlength="2" required>
               </div>
             </div>
             <legend class="col-form-legend col-sm-12">Goal Period</legend>
