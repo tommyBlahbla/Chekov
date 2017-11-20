@@ -42,7 +42,9 @@ $( document ).ready(function() {
     var hCount = Object.keys(cDataParsed).length-2;
     console.log(hCount);
     while(i<=hCount){
-        habits[i]=getCookie(('h'+i));
+        cname='h'+i;
+        habits[i]=getCookie(cname);
+        console.log(habits[i]);
     }
     console.log(habits);
 });
