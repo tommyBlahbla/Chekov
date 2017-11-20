@@ -20,18 +20,31 @@ function getCookie(cname) {
 }
 
 $( document ).ready(function() {
-    var cdata = getCookie("chekov");
-    if (cdata==""){
-        cdata = {
-        sdate:Date.now(),
-        ihabit:2,
-        h1:'r',
-        h2:'a'
+    var cData = getCookie("chekov");
+    var i=1;
+    var habits;
+    if (cData==""){
+        cData = {
+            sDate:Date.now(),
+            habitInt:2,
+            h1:'r',
+            h2:'a'
         }
-        setCookie('chekov',JSON.stringify(cdata),365);
+        setCookie('chekov',JSON.stringify(cData),365);
         console.log("WELCOME NEWB");
     }
-    console.log(cdata);
+    setCookie('h1',JSON.stringify(cData),365);
+    setCookie('h2',JSON.stringify(cData),365);
+    console.log("WELCOME NEWB");
+    cData=JSON.stringify(cData);
+    console.log(cData);
+    cDataParsed=JSON.parse(cData);
+    var hCount = Object.keys(cDataParsed).length-2;
+    console.log(hCount);
+    while(i<=hCount){
+        habits[i]=getCookie(('h'+i));
+    }
+    console.log(habits);
 });
 
 function getCookieIndex(){}
@@ -41,15 +54,16 @@ $("#newHabit").submit(function( event ) {
     var fields = $( ":input" ).serializeArray();
     var fieldvals = {
         n:fields[0].value,
+        s:fields[1].value,
         f:fields[2].value,
         g:fields[3].value,
         p:fields[4].value
     }
     fieldJSON=JSON.stringify(fieldvals);
     console.log(fieldJSON);
-    setCookie(fields[1].value, JSON.stringify(fieldvals), 365);
+    setCookie('h', JSON.stringify(fieldvals), 365);
     $('#newHabitModal').modal('toggle');
-  event.preventDefault();
+    event.preventDefault();
 });
 
 $('#newCookieBtn').on('click', function() {
