@@ -45,7 +45,7 @@ $( document ).ready(function() {
     while(i<=hCount){
         cname='h'+i;
         console.log(cname);
-        habits[i]=getCookie(cname);
+        habits[i]=JSON.parse(getCookie(cname));
         console.log(habits[i]);
         i++;
     }
