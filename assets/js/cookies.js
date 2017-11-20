@@ -21,20 +21,15 @@ function getCookie(cname) {
 
 $( "form" ).submit(function( event ) {
     var fields = $( ":input" ).serializeArray();
-    var fieldval;
-    var fieldJSON;
-    jQuery.each( fields, function( i, field ) {
-      //console.log(field.name + " " + field.value + " " + i + " ");
-      if (fieldval) {
-        fieldval=fieldval + "," + field.name + ":" + field.value;  
-    } else{
-      fieldval=field.name + ":" + field.value;
-  }
-});
-    fieldJSON=JSON.stringify(fieldval);
+    var fieldvals = {
+        n:fields[0].value,
+        f:fields[1].value,
+        g:fields[2].value,
+        p:fields[3].value
+    }
+    fieldJSON=JSON.stringify(fieldvals);
     console.log(fieldJSON);
-    setCookie('TESTCOOKIE', JSON.stringify(fieldval), 365);
-  // console.log( $( this ).serializeArray() );
+    setCookie('TESTCOOKIE', JSON.stringify(fieldvals), 365);
   event.preventDefault();
 });
 
