@@ -54,10 +54,10 @@ $( document ).ready(function() {
     setCookie('h2',JSON.stringify(h2data),365);
     // console.log("WELCOME NEWB");
     console.log("pre"+cData);
-    cData=JSON.stringify(cData);
+    //cData=JSON.stringify(cData);
     console.log("post"+cData);
     cDataParsed=JSON.parse(cData);
-    console.log("parsed"+cDataParsed);
+    console.log("parsed"+cDataParsed.sDate);
     //var hCount = Object.keys(cDataParsed).length-1;
     console.log(cDataParsed.hCount);
 
