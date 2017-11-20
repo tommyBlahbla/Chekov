@@ -53,9 +53,11 @@ $( document ).ready(function() {
     setCookie('h1',JSON.stringify(h1data),365);
     setCookie('h2',JSON.stringify(h2data),365);
     // console.log("WELCOME NEWB");
+    console.log("pre"+cData);
     cData=JSON.stringify(cData);
-    // console.log(cData);
+    console.log("post"+cData);
     cDataParsed=JSON.parse(cData);
+    console.log("parsed"+cDataParsed);
     //var hCount = Object.keys(cDataParsed).length-1;
     console.log(cDataParsed.hCount);
 
@@ -69,9 +71,9 @@ $( document ).ready(function() {
     }
     console.log(habits);
 
-function drawHabitButtons(habit){
-    $("#habitButtons").append("<div><h3>"+habit.s+"</h3></div>");
-}
+    function drawHabitButtons(habit){
+        $("#habitButtons").append("<div><h3>"+habit.s+"</h3></div>");
+    }
 
     $("#newHabit").submit(function( event ) {
         var fields = $( ":input" ).serializeArray();
