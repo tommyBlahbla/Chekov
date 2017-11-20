@@ -56,8 +56,8 @@ $( document ).ready(function() {
     console.log("pre"+cData);
     //cData=JSON.stringify(cData);
     console.log("post"+cData);
-    cDataParsed=JSON.parse(cData);
-    console.log("parsed"+cDataParsed.sDate);
+    //cDataParsed=JSON.parse(cData);
+    console.log("parsed"+cData.sDate);
     //var hCount = Object.keys(cDataParsed).length-1;
     console.log(cDataParsed.hCount);
 
