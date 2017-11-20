@@ -85,7 +85,7 @@ function drawHabitButtons(habit){
     }
     fieldJSON=JSON.stringify(fieldvals);
     console.log(fieldJSON);
-    newCName='h'+(hCount+1);
+    newCName='h'+(cDataParsed.hCount+1);
     setCookie(newCName, JSON.stringify(fieldvals), 365);
     // newCData=JSON.stringify(fieldvals)+
     // setCookie('cData', ,365);
