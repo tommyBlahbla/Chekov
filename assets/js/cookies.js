@@ -33,8 +33,24 @@ $( document ).ready(function() {
         setCookie('chekov',JSON.stringify(cData),365);
         console.log("WELCOME NEWB");
     }
-    setCookie('h1',JSON.stringify(cData),365);
-    setCookie('h2',JSON.stringify(cData),365);
+    h1data={
+        n:'run',  //name
+        s:'r',  //shortcode
+        f:'d',  //frequency
+        g:1,  //make vs break
+        p:1,  //# per period
+        a:1                 //active  
+    }
+    h2data={
+        n:'abs',  //name
+        s:'a',  //shortcode
+        f:'d',  //frequency
+        g:1,  //make vs break
+        p:1,  //# per period
+        a:1                 //active  
+    }
+    setCookie('h1',JSON.stringify(h1data),365);
+    setCookie('h2',JSON.stringify(h2data),365);
     console.log("WELCOME NEWB");
     cData=JSON.stringify(cData);
     console.log(cData);
@@ -46,11 +62,15 @@ $( document ).ready(function() {
         cname='h'+i;
         console.log(cname);
         habits[i]=JSON.parse(getCookie(cname));
+        drawHabitButtons(habits[i]);
         console.log(habits[i]);
         i++;
     }
     console.log(habits);
 
+function drawHabitButtons(habit){
+    $("#habitButtons").append("<div><h3>"+habit.s+"</h3></div>");
+}
 
     $("#newHabit").submit(function( event ) {
         var fields = $( ":input" ).serializeArray();
