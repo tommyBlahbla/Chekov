@@ -1,0 +1,5 @@
+NOTES
+
+cookies.js > possible to refresh cookie without reloading page?
+maybe change dates from fullyear to year to save 2 chars per data point
+
