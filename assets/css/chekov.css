@@ -1,0 +1,92 @@
+
+.container {
+	text-align: center;
+}
+
+#habitButtons{
+	display: inline-block;
+}
+
+.btn {
+	border-radius: 50%;
+    width: 15vmax;
+    height: 15vmax;
+    margin-left: 5.4vmax;
+    margin-right: 5.4vmax;
+	float: left;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 100;
+	font-size: 5vmax;
+}
+.btn-habit {
+	color: #fff;
+}
+
+.btn-new-habit {
+	background-color: #fff;
+	border-style: dashed;
+	border-width: 2px;
+	border-color: #999;
+}
+
+.cB {
+	color: #2C95E6;
+	background-color: #fff;
+	border-width: 2px;
+	border-color: #2C95E6;
+}
+
+.cB.hComplete {
+	color: #fff;
+	background-color: #2C95E6;
+}
+
+.cA {
+	color: #DEC12A;
+	background-color: #fff;
+	border-width: 2px;
+	border-color: #DEC12A;
+}
+
+.cA.hComplete {
+	color: #fff;
+	background-color: #DEC12A;
+}
+
+.cG {
+	color: #0D923B;
+	background-color: #fff;
+	border-width: 2px;
+	border-color: #0D923B;
+}
+
+.cG.hComplete {
+	color: #fff;
+	background-color: #0D923B;
+}
+
+.cR {
+	color: #CC3737;
+	background-color: #fff;
+	border-width: 2px;
+	border-color: #CC3737;
+}
+
+.cR.hComplete {
+	color: #fff;
+	background-color: #CC3737;
+}
+
+.cP {
+	color: #6459E4;
+	background-color: #fff;
+	border-width: 2px;
+	border-color: #6459E4;
+}
+
+.cP.hComplete {
+	color: #fff;
+	background-color: #6459E4;
+}
+
+

@@ -13,58 +13,27 @@
   <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500" rel="stylesheet">
   <link href="starter-template.css" rel="stylesheet">
+  <link href="assets/css/chekov.css" rel="stylesheet">
+  <style>
+</style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
+  <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #dec12a;">
+    <a class="navbar-brand" href="#">chekov</a>
   </nav>
 
   <div class="container">
-
-    <div class="starter-template">
-      <div class="btn">
-      </div>
-      <h1>Bootstrap starter template</h1>
       <div id="habitButtons">
-      </div>
+        <button type="button" class="btn btn-habit cB" id="h1">2</button>
+        <button type="button" class="btn btn-habit cG" id="h1">2</button>
+        <button type="button" class="btn btn-habit cG" id="h1">2</button>
+        <button type="button" class="btn btn-new-habit" data-toggle="modal" data-target="#newHabitModal">+</button>
     </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newHabitModal">
-      Launch demo modal
-    </button>
 
   </div><!-- /.container -->
 
@@ -86,12 +55,14 @@
                 <input type="text" class="form-control" name="newHabitName"  id="newHabitName" placeholder="Habit Name" required>
               </div>
             </div>
+
             <div class="form-group row">
               <label class="sr-only" for="newHabitShort">New Habit Shortcode</label>
               <div class="col-sm-12">
-              <input type="text" class="form-control" name="newHabitShort"  id="newHabitName" placeholder="Two Letter Shortcode" maxlength="2" required>
+                <input type="text" class="form-control" name="newHabitShort"  id="newHabitName" placeholder="Two Letter Shortcode" maxlength="2" required>
               </div>
             </div>
+
             <legend class="col-form-legend col-sm-12">Goal Period</legend>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
@@ -113,6 +84,7 @@
                 <input class="form-check-input" type="radio" name="newHabitFreq" id="newHabitFreqRadio4" value="y" required> Yearly
               </label>
             </div>
+
             <legend class="col-form-legend col-sm-12">Make or Break</legend>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
@@ -130,6 +102,34 @@
                 <input type="number" class="form-control" name="newHabitGoal" id="newHabitGoal" placeholder="Times per period" required>
               </div>
             </div>
+
+            <legend class="col-form-legend col-sm-12">Colour</legend>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="newHabitColor" id="newHabitColorRadio1" value="A" required> Gold
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="newHabitColor" id="newHabitColorRadio2" value="B" required> Blue
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="newHabitColor" id="newHabitColorRadio3" value="G" required> Green
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="newHabitColor" id="newHabitColorRadio4" value="R" required> Red
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="newHabitColor" id="newHabitColorRadio5" value="P" required> Purple
+              </label>
+            </div>
+
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save changes</button>
           </form>
@@ -138,14 +138,16 @@
     </div>
   </div>
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="assets/js/cookies.js"></script>
-  </body>
-  </html>
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer-time/1.1.0/hammer-time.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="assets/js/vendor/popper.min.js"></script>
+      <script src="dist/js/bootstrap.min.js"></script>
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+      <script src="assets/js/cookies.js"></script>
+    </body>
+    </html>
