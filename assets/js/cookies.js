@@ -112,19 +112,15 @@ while(i<=cDataParsed.hCount && cDataParsed.hCount>0){
         drawHabitButtons(habits[i], i);
         switch (habits[i].f) {
             case 'd':
-            console.log("day");
             checkHabitGoalAchievedDay(habits[i], i);
             break; 
             case 'w':
-            console.log("weekly");
             checkHabitGoalAchievedWeek(habits[i], i);
             break; 
             case 'm':
-            console.log("monthly");
             checkHabitGoalAchievedMonth(habits[i], i);
             break;
             case 'y':
-            console.log("yearly");
             checkHabitGoalAchievedYear(habits[i], i);
             break;  
         }
@@ -146,8 +142,12 @@ $('.btn-habit').each(function(){
 });
     //h1=JSON.parse(getCookie('h1')); ///remove after testing...maybe?
     function drawHabitButtons(habit, i){ 
-        $("#habitButtons").append('<button type="button" class="btn btn-habit c'+habit.k+'" id="h'+i+'">'+habit.s+'</button>');
+        $("#habitButtons").prepend('<div class="btn-div"><button type="button" class="btn hbtn btn-habit c'+habit.k+'" id="h'+i+'">'+habit.s+'</button><div class="stk-rank" id="h'+i+'-rank"></div></div>');
     }
+    function drawHabitRank(habit, i){
+
+    }
+
 
     //change button colour
     function checkHabitGoalAchievedDay(habit, i){
@@ -168,7 +168,6 @@ $('.btn-habit').each(function(){
         if(count>=habit.p){
             $('#h'+i).addClass("hComplete");
         }
-        console.log("day Count: "+habit.ct);
     }
 
     function checkHabitGoalAchievedWeek(habit, i){
@@ -187,9 +186,8 @@ $('.btn-habit').each(function(){
             }
         }
         if(count>=habit.p){
-            $('#h'+i).addClass("btn-success");
+            $('#h'+i).addClass("hComplete");
         }
-        console.log("Weekly Count: "+habit.ct);
     }
 
     function checkHabitGoalAchievedMonth(habit, i){
@@ -208,9 +206,8 @@ $('.btn-habit').each(function(){
             }
         }
         if(count>=habit.p){
-            $('#h'+i).addClass("btn-success");
+            $('#h'+i).addClass("hComplete");
         }
-        console.log("Weekly Count: "+habit.ct);
     }
 
     function checkHabitGoalAchievedYear(habit, i){
@@ -229,9 +226,8 @@ $('.btn-habit').each(function(){
             }
         }
         if(count>=habit.p){
-            $('#h'+i).addClass("btn-success");
+            $('#h'+i).addClass("hComplete");
         }
-        console.log("Weekly Count: "+habit.ct);
     }
 
 
@@ -244,6 +240,7 @@ $('.btn-habit').each(function(){
 
     //function to create new habit cookies
     $("#newHabit").submit(function( event ) {
+        event.preventDefault();
         var fields = $( ":input" ).serializeArray();
         var fieldvals = {
         n:fields[0].value,  //name
@@ -263,8 +260,8 @@ $('.btn-habit').each(function(){
         cDataUpdate=cData.substring(0, cData.length - 1) + ',"' + newCName + '":"' + fieldvals.s + '"}';
         setCookie('chekov', cDataUpdate, 365); //updates primary index cookie
         $('#newHabitModal').modal('toggle');
+       
         location.reload();
-        event.preventDefault();
     });
 
     function plusOneHabit(hId){

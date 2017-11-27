@@ -7,22 +7,39 @@
 	display: inline-block;
 }
 
-.btn {
-	border-radius: 50%;
-    width: 15vmax;
-    height: 15vmax;
-    margin-left: 5.4vmax;
-    margin-right: 5.4vmax;
-	float: left;
-	font-family: 'Fira Sans', sans-serif;
-	font-weight: 100;
-	font-size: 5vmax;
+.btn-div{
+	display: inline-block;
+	margin-bottom: 50px;
 }
-.btn-habit {
+
+.btn-div:nth-child(odd){
+	margin-right: 25px;
+}
+
+.btn-div:nth-child(even){
+	margin-left: 25px;
+}
+
+.btn-div:last-child:last-child(odd){
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.hbtn {
+	border-radius: 50%;
+	width: 125px;
+	height: 125px;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 200;
+	font-size: 55px;
+}
+
+.hbtn-habit {
 	color: #fff;
 }
 
 .btn-new-habit {
+	color:#999;
 	background-color: #fff;
 	border-style: dashed;
 	border-width: 2px;
@@ -89,4 +106,24 @@
 	background-color: #6459E4;
 }
 
+
+.rank-circ{
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.f-circ {
+	background-color: #999;
+}
+
+.e-circ {
+	background-color: #fff;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #999;
+}
 
