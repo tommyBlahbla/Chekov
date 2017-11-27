@@ -27,21 +27,57 @@
   </nav>
 
   <div class="container">
-      <div id="habitButtons">
-        <div class="btn-div">
+    <div id="habitButtons">
+      <div class="btn-div">
         <button type="button" class="btn hbtn btn-new-habit" data-toggle="modal" data-target="#newHabitModal">+</button><div class="stk-rank"><div class="rank-circ f-circ"></div><div class="rank-circ e-circ"></div></div>
+      </div>
+      <div id="habitStats">
+        <svg viewBox="0 0 500 100" class="chart">
+
+          <polyline
+          fill="none"
+          stroke="#0074d9"
+          stroke-width="2"
+          points="
+          00,120
+          20,60
+          40,80
+          60,20
+          80,80
+          100,80
+          120,60
+          140,100
+          160,90
+          180,80
+          200, 110
+          220, 10
+          240, 70
+          260, 100
+          280, 100
+          300, 40
+          320, 0
+          340, 100
+          360, 100
+          380, 120
+          400, 60
+          420, 70
+          440, 80
+          "
+          />
+
+        </svg>
       </div>
     </div>
 
 
   </div><!-- /.container -->
 
-  <!-- Modal -->
-  <div class="modal fade" id="newHabitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- New Habit Modal -->
+  <div class="modal fade" id="newHabitModal" tabindex="-1" role="dialog" aria-labelledby="NewHabitModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New Habit</h5>
+          <h5 class="modal-title" id="NewHabitModalLabel">New Habit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -58,7 +94,7 @@
             <div class="form-group row">
               <label class="sr-only" for="newHabitShort">New Habit Shortcode</label>
               <div class="col-sm-12">
-                <input type="text" class="form-control" name="newHabitShort"  id="newHabitName" placeholder="Two Letter Shortcode" maxlength="2" required>
+                <input type="text" class="form-control" name="newHabitShort"  id="newHabitShort" placeholder="Two Letter Shortcode" maxlength="2" required>
               </div>
             </div>
 
@@ -96,7 +132,7 @@
               </label>
             </div>
             <div class="form-group row">
-              <label class="sr-only" for="newHabitGoal">New Habit Goal</label>
+              <label class="sr-only" for="newHabitGoal">Habit Goal</label>
               <div class="col-sm-12">
                 <input type="number" class="form-control" name="newHabitGoal" id="newHabitGoal" placeholder="Times per period" required>
               </div>
@@ -130,7 +166,108 @@
             </div>
 
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Update Habit Modal -->
+  <div class="modal fade" id="UpdateHabitModal" tabindex="-1" role="dialog" aria-labelledby="UpdateHabitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="UpdateHabitModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="updateHabit" hid="">
+            <div class="form-group row">
+              <label class="sr-only" for="UpdateHabitName">Habit Name</label>
+              <div class="col-sm-12">
+                <input type="text" class="form-control" name="UpdateHabitName"  id="UpdateHabitName" placeholder="Habit Name" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="sr-only" for="UpdateHabitShort">Habit Shortcode</label>
+              <div class="col-sm-12">
+                <input type="text" class="form-control" name="UpdateHabitShort"  id="UpdateHabitShort" placeholder="Two Letter Shortcode" maxlength="2" required>
+              </div>
+            </div>
+
+            <legend class="col-form-legend col-sm-12">Goal Period</legend>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitFreq" id="UpdateHabitFreqRadio1" value="d" required> Daily
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitFreq" id="UpdateHabitFreqRadio2" value="w" required> Weekly
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitFreq" id="UpdateHabitFreqRadio3" value="m" required> Monthly
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitFreq" id="UpdateHabitFreqRadio4" value="y" required> Yearly
+              </label>
+            </div>
+
+            <legend class="col-form-legend col-sm-12">Make or Break</legend>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitType" id="UpdateHabitTypeRadio1" value="1" required> Make
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitType" id="UpdateHabitTypeRadio2" value="0" required> Break
+              </label>
+            </div>
+            <div class="form-group row">
+              <label class="sr-only" for="UpdateHabitGoal">Habit Goal</label>
+              <div class="col-sm-12">
+                <input type="number" class="form-control" name="UpdateHabitGoal" id="UpdateHabitGoal" placeholder="Times per period" required>
+              </div>
+            </div>
+
+            <legend class="col-form-legend col-sm-12">Colour</legend>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitColor" id="UpdateHabitColorRadio1" value="A" required> Gold
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitColor" id="UpdateHabitColorRadio2" value="B" required> Blue
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitColor" id="UpdateHabitColorRadio3" value="G" required> Green
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitColor" id="UpdateHabitColorRadio4" value="R" required> Red
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="UpdateHabitColor" id="UpdateHabitColorRadio5" value="P" required> Purple
+              </label>
+            </div>
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Update</button>
           </form>
         </div>
       </div>

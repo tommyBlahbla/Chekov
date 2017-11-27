@@ -127,3 +127,24 @@
 	border-color: #999;
 }
 
+/*Graphs*/
+
+.chart {
+  background: white;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px dotted #555;
+  padding: 20px 20px 0px 0;
+}
+
+#habitStats {
+  /* background: #ccc; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#habitStats, html {
+  height: 100%;
+}

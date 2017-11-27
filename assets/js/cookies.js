@@ -241,7 +241,7 @@ $('.btn-habit').each(function(){
     //function to create new habit cookies
     $("#newHabit").submit(function( event ) {
         event.preventDefault();
-        var fields = $( ":input" ).serializeArray();
+        var fields = $( "#newHabit :input" ).serializeArray();
         var fieldvals = {
         n:fields[0].value,  //name
         s:fields[1].value,  //shortcode
@@ -260,7 +260,32 @@ $('.btn-habit').each(function(){
         cDataUpdate=cData.substring(0, cData.length - 1) + ',"' + newCName + '":"' + fieldvals.s + '"}';
         setCookie('chekov', cDataUpdate, 365); //updates primary index cookie
         $('#newHabitModal').modal('toggle');
-       
+        location.reload();
+    });
+
+    //function to update a habit cookies
+    $("#updateHabit").submit(function( event ) {
+        event.preventDefault();
+        hId = $('#updateHabit').attr('hid');
+        hData = JSON.parse(getCookie(hId));
+        cData = JSON.parse(getCookie('chekov'));
+        var fields = $( "#updateHabit :input" ).serializeArray();
+        console.log(fields);
+        var fieldvals = {
+        n:fields[0].value,  //name
+        s:fields[1].value,  //shortcode
+        f:fields[2].value,  //frequency
+        g:fields[3].value,  //make vs break
+        p:fields[4].value,  //# per period
+        k:fields[5].value,  //I still spell kolour with a K
+        a:1,                //active
+        c:hData.c,       //date created
+        d:hData.d     }               
+
+        setCookie(hId, JSON.stringify(fieldvals), 365); //creates new habit cookie
+        cData[hId]=fieldvals.s;
+        setCookie('chekov', JSON.stringify(cData), 365); //updates primary cookie with new short name
+        $('#newHabitModal').modal('toggle');
         location.reload();
     });
 
@@ -290,6 +315,16 @@ $('.btn-habit').each(function(){
     }
 
     function updateHabit(hId){
+        var hData = JSON.parse(getCookie(hId));
+        $('#UpdateHabitModalLabel').text(hData.n + " Details");
+        $('#updateHabit').attr('hid',hId);
+        $('#UpdateHabitName').val(hData.n);
+        $('#UpdateHabitShort').val(hData.s);
+        $('input:radio[name="UpdateHabitFreq"]').filter('[value="'+hData.f+'"]').attr('checked', true);
+        $('input:radio[name="UpdateHabitType"]').filter('[value="'+hData.g+'"]').attr('checked', true);
+        $('#UpdateHabitGoal').val(hData.p);
+        $('input:radio[name="UpdateHabitColor"]').filter('[value="'+hData.k+'"]').attr('checked', true);
+        $('#UpdateHabitModal').modal('toggle');
         //I'll write this function later
         //read cookie
         //parse into object
